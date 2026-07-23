@@ -1,0 +1,17 @@
+[Unit]
+Description=Slack Bot
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=root
+Restart=always
+RestartSec=5
+WorkingDirectory=/project
+ExecStart=/root/.nvm/versions/node/v24.18.0/bin/node index.js
+
+[Install]
+WantedBy=multi-user.target
+
+# Because I host it on my system. Im still pending for nest server.
