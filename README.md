@@ -7,3 +7,4 @@ Well in that case
 Rick Roll
 - /luk-sus-npc-google
 And this one points you to Google for those who Google Google in Google.
+## Try it out at Hack Clubs Slack server, possibly in #bot-spam with /luk-sus-npc-xxxx.
