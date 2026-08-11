@@ -26,7 +26,14 @@ else
     exit 1
 fi
 
-rm deci_Linux_x86_64.tar.gz
+if [ "$ARCH" = "x86_64" ]; then
+    rm deci_Linux_x86_64.tar.gz
+elif [ "$ARCH" = "aarch64" ]; then
+    rm deci_Linux_arm64.tar.gz
+else
+    echo "Didn't find deci installation file to remove."
+    exit 1
+fi
 
 if [ "$(id -u)" -eq 0 ]; then
     mv deci/deci /usr/local/bin/deci
