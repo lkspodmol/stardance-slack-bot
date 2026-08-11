@@ -17,7 +17,14 @@ echo $ARCH
 
 mkdir deci
 
-tar -xzf deci_Linux_x86_64.tar.gz -C deci
+if [ "$ARCH" = "x86_64" ]; then
+    tar -xzf deci_Linux_x86_64.tar.gz -C deci
+elif [ "$ARCH" = "aarch64" ]; then
+    tar -xzf deci_Linux_arm64.tar.gz -C deci
+else
+    echo "Didn't find deci installation file."
+    exit 1
+fi
 
 rm deci_Linux_x86_64.tar.gz
 
