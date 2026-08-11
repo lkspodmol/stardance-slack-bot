@@ -2,7 +2,7 @@
 
 set -e
 
-curl -LO "$(curl -s https://api.github.com/repos/ethmarks/deci/releases/latest | grep '"browser_download_url":' | grep 'Linux_x8>
+curl -LO "$(curl -s https://api.github.com/repos/ethmarks/deci/releases/latest | grep '"browser_download_url":' | grep 'Linux_x86_64.tar.gz' | grep -o 'https://[^"]*')"
 
 mkdir deci
 
