@@ -50,4 +50,4 @@ rm README.md
 cd ../
 rmdir deci
 
-echo "Deci has been installed successfully!"
+echo "Deci has been installed successfully! To start using deci, just type deci into your terminal."
