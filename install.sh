@@ -2,7 +2,18 @@
 
 set -e
 
-curl -LO "$(curl -s https://api.github.com/repos/ethmarks/deci/releases/latest | grep '"browser_download_url":' | grep 'Linux_x86_64.tar.gz' | grep -o 'https://[^"]*')"
+ARCH=$(uname -m)
+
+if [ "$ARCH" = "x86_64" ]; then
+    curl -LO "$(curl -s https://api.github.com/repos/ethmarks/deci/releases/latest | grep '"browser_download_url":' | grep 'Linux_x86_64.tar.gz' | grep -o 'https://[^"]*')"
+elif [ "$ARCH" = "aarch64" ]; then
+    curl -LO "$(curl -s https://api.github.com/repos/ethmarks/deci/releases/latest | grep '"browser_download_url":' | grep 'arm64.tar.gz' | grep -o 'https://[^"]*')"
+else
+    echo "Unsupported architecture: $ARCH"
+    exit 1
+fi
+
+echo $ARCH
 
 mkdir deci
 
